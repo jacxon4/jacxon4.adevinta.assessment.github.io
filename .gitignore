@@ -1,0 +1,12 @@
+node_modules
+.idea
+.awcache
+dist
+build
+reports
+coverage
+.vscode
+*.log
+junit.xml
+bundler-report
+*.iml
