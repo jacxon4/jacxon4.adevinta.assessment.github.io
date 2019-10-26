@@ -6,7 +6,9 @@
     "test": "cross-env NODE_ENV=test jest --verbose --config ./config/jest/jest.config.js",
     "start": "cross-env NODE_ENV=development webpack-dev-server --config ./config/webpack/webpack.dev.js",
     "lint": "eslint ./src",
-    "lint:fix": "eslint ./src --fix"
+    "lint:fix": "eslint ./src --fix",
+    "clean:prod": "rimraf build-prod",
+    "build": "npm run clean:prod && webpack --config ./config/webpack/webpack.prod.js"
   },
   "repository": {
     "type": "git",
