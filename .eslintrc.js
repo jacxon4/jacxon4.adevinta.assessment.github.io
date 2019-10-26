@@ -15,4 +15,9 @@ module.exports = {
   },
   rules: {},
   plugins: ['prettier'],
+  settings: {
+    'import/resolver': {
+      alias: [['src', './src'], ['app', './src/app']],
+    },
+  },
 };

@@ -8,8 +8,7 @@
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "clean:prod": "rimraf build-prod",
-    "build": "npm run clean:prod && webpack --config ./config/webpack/webpack.prod.js",
-    "publish": "gh-pages -d build-prod"
+    "build": "npm run clean:prod && webpack --config ./config/webpack/webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -34,8 +33,9 @@
     "css-loader": "^3.2.0",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.4.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.1",
-    "gh-pages": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
