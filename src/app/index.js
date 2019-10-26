@@ -1,3 +1,3 @@
-import { renderList } from './components/app';
+import App from './app';
 
-document.getElementById('root').innerHTML = renderList();
+App.render('root');
