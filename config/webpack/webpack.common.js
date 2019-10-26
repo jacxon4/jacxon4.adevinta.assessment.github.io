@@ -23,19 +23,8 @@ module.exports = env => {
       loader: 'babel-loader',
     },
     {
-      test: /\.(scss)$/,
-      use: [
-        MiniCssExtractPlugin.loader,
-        {
-          loader: 'css-loader',
-          options: {
-            sourceMap: true,
-            modules: true,
-            importLoaders: 1,
-            localIdentName: process.env.NODE_ENV === 'test' ? '[local]' : '[name]__[local]___[hash:base64:5]',
-          },
-        },
-      ],
+      test: /\.scss$/,
+      use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
     },
   ];
 
@@ -57,7 +46,9 @@ module.exports = env => {
       },
     },
     entry: {
-      main: ['./index.js'],
+      app: ['./index.js'],
+      appStyles: ['./styles.scss'],
+      vendor: ['@babel/polyfill'],
     },
     module: {
       rules,
