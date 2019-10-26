@@ -15,4 +15,4 @@ export const list = `
       </dl>
     `;
 
-export const renderList = () => list;
+export const ListComponent = () => list;
