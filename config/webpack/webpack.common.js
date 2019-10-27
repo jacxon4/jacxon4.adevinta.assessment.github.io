@@ -23,7 +23,7 @@ module.exports = env => {
       loader: 'babel-loader',
     },
     {
-      test: /\.scss$/,
+      test: /\.sass$/,
       use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
     },
   ];
@@ -39,7 +39,7 @@ module.exports = env => {
     devtool: env.devtool,
     context: helpers.appPath,
     resolve: {
-      extensions: ['.js', '.json', '.scss', '.css'],
+      extensions: ['.js', '.json', '.sass', '.css'],
       modules: ['node_modules'],
       alias: {
         app: helpers.appPath,
@@ -48,7 +48,7 @@ module.exports = env => {
     },
     entry: {
       app: ['./index.js'],
-      appStyles: ['./styles.scss'],
+      appStyles: ['./theme.sass'],
       vendor: ['@babel/polyfill'],
     },
     module: {

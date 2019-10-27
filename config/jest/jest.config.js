@@ -4,7 +4,7 @@ module.exports = {
   coveragePathIgnorePatterns: ['.+\\.spec.js'],
   moduleFileExtensions: ['js', 'json', 'node'],
   moduleNameMapper: {
-    '^.+\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '^.+\\.(css|sass)$': 'identity-obj-proxy',
     '^src(.*)$': '<rootDir>/src/$1',
     '^app(.*)$': '<rootDir>/src/app/$1',
   },

@@ -1,3 +1,5 @@
+import './styles.sass';
+
 export const EXPANDED_FEATURE = 'is-expanded';
 
 const accordion = (rootElement, expandedItem) => {
@@ -17,7 +19,15 @@ const accordion = (rootElement, expandedItem) => {
     accordionItems.forEach(item => item.nextElementSibling.classList.remove(EXPANDED_FEATURE));
     target.nextElementSibling.classList.toggle(EXPANDED_FEATURE);
   }
+  function setUpClasses() {
+    rootElement.classList.add('Accordion');
+    accordionItems.forEach(item => {
+      item.classList.add('Accordion-itemTerm');
+      item.nextElementSibling.classList.add('Accordion-itemDescription');
+    });
+  }
   if (accordionItems !== undefined) {
+    setUpClasses();
     addListeners(accordionItems);
     expandedItem !== null && toggleExpanded(accordionItems[expandedItem]);
   }

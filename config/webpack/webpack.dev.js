@@ -45,7 +45,7 @@ const env = {
       cacheGroups: {
         styles: {
           name: 'styles',
-          test: /\.(scss|css)$/,
+          test: /\.(sass|css)$/,
           chunks: 'all',
           enforce: true,
         },

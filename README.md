@@ -13,7 +13,15 @@ Run from console:
     
 Access to ``localhost:8080`` to see results
 
+## Development
+Run next sentence from console to trigger tests on any change of implementation:
+
+    npm run test:watch
+
+
 ## Bundling for production
+Run next sentence from console. Bundling files will be placed under `build-prod` folder 
+
     npm run build
     
  
