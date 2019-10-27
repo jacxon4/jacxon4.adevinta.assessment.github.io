@@ -1,11 +1,14 @@
 @import "app/theme"
 
+$u-shadowColor1: rgba(0, 0, 0, 0.16)
+$u-shadowColor2: rgba(0, 0, 0, 0.23)
 
 $Accordion-backgroundColor: rgb(211,211,211)
 $Accordion-borderColor: $u-borderColor
 
 $Accordion-itemTitle-backgroundColor: rgb(211,211,211)
 $Accordion-itemTitle-borderColor: $u-borderColor
+$Accordion-itemTitle-fontWeight: $u-medium-fontWeight
 
 $Accordion-itemDescription-backgroundColor: rgb(239,239,239)
 
@@ -13,24 +16,31 @@ $Accordion-itemDescription-backgroundColor: rgb(239,239,239)
   @return ($step * $u-baseSize)
 
 .Accordion
+  display: flex
+  flex-direction: column
   border: 1px solid $Accordion-borderColor
   border-radius: unit-scale()
+  box-shadow: 0 1px 3px $u-shadowColor1, 0 1px 2px $u-shadowColor2
   overflow: hidden
+
   &-itemTerm
     border-top: 1px solid $Accordion-itemTitle-borderColor
     background-color: $Accordion-itemTitle-backgroundColor
     padding: unit-scale()
+    font-weight: $Accordion-itemTitle-fontWeight
 
   &-itemDescription
-    height: 0
     background-color: $Accordion-itemDescription-backgroundColor
+    height: 0
+    width: 0
     overflow: hidden
 
     &.is-expanded
-      box-shadow: 0px -3px unit-scale() 1px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
-      margin: 0
+      box-shadow: 0px -3px unit-scale() 1px $u-shadowColor1, 0 3px 6px $u-shadowColor2
       border-left:  unit-scale() solid $u-primary-color
       height: auto
+      width: auto
+      margin: 0
 
       & p
         margin-left: unit-scale(2)
