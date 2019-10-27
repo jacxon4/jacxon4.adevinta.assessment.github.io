@@ -5,6 +5,7 @@ module.exports = {
   moduleFileExtensions: ['js', 'json', 'node'],
   moduleNameMapper: {
     '^.+\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '^src(.*)$': '<rootDir>/src/$1',
     '^app(.*)$': '<rootDir>/src/app/$1',
   },
   rootDir: '../../',
@@ -15,5 +16,5 @@ module.exports = {
   transform: {
     '^.+\\.js$': 'babel-jest',
   },
-
+  testEnvironment: 'jsdom',
 };

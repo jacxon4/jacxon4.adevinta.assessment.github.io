@@ -1,4 +1,10 @@
-import { ListComponent } from './components';
+import { createAccordion } from './components';
 
-const render = rootElement => (document.getElementById(rootElement).innerHTML = ListComponent());
+const renderDocument = document => rootElement => {
+  const root = document.getElementById(rootElement);
+  const listToAccordion = root.querySelector('dl');
+  !!listToAccordion && createAccordion(listToAccordion);
+};
+const render = renderDocument(document);
+
 export default { render };

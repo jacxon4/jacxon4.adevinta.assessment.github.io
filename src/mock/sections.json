@@ -1,0 +1,17 @@
+[
+  {
+    "id": "section1",
+    "title": "Section 1",
+    "content": "Section 1 Content..."
+  },
+  {
+    "id": "section2",
+    "title": "Section 2",
+    "content": "Section 2 Content..."
+  },
+  {
+    "id": "section3",
+    "title": "Section 3",
+    "content": "Section 3 Content..."
+  }
+]

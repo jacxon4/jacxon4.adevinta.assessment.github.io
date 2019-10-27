@@ -37,12 +37,13 @@ module.exports = env => {
     mode: env.environment,
     cache: env.cache,
     devtool: env.devtool,
-    context: helpers.srcPath,
+    context: helpers.appPath,
     resolve: {
       extensions: ['.js', '.json', '.scss', '.css'],
       modules: ['node_modules'],
       alias: {
-        app: helpers.srcPath,
+        app: helpers.appPath,
+        src: helpers.src,
       },
     },
     entry: {
