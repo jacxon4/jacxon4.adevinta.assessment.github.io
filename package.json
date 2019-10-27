@@ -4,6 +4,7 @@
   "description": "Adevinta assessment",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --verbose --config ./config/jest/jest.config.js",
+    "test:watch": "cross-env NODE_ENV=test jest --verbose --config ./config/jest/jest.config.js --watch",
     "start": "cross-env NODE_ENV=development webpack-dev-server --config ./config/webpack/webpack.dev.js",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",

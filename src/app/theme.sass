@@ -1,0 +1,18 @@
+$u-color: rgba(0,0,0,0.87)
+$u-backgroundColor: #fff
+$u-primary-color: rgb(0,102,204)
+$u-secondary-color: rgb(165,210,255)
+$u-borderColor: rgb(51,51,51)
+$u-baseSize: 8px
+
+@mixin generate-typography-base
+  font-family: Roboto, Helvetica, Arial, sans-serif
+  color: $u-color
+
+body
+  background-color: $u-backgroundColor
+  @include generate-typography-base
+  font-weight: 400
+  font-size: 16px
+  line-height: 23px
+  letter-spacing: 0

@@ -24,7 +24,7 @@ describe('Accordion component', () => {
 
   const selectDDElements = () => document.querySelectorAll('dd');
   const selectDDElementsExpanded = () => document.querySelectorAll(`dd.${EXPANDED_FEATURE}`);
-  const getClassList = element => element.classList[0];
+  const classListContains = (element, className) => element.classList.contains(className);
 
   it('should not expand any element if not provided', () => {
     createAccordion(documentTree);
@@ -34,7 +34,7 @@ describe('Accordion component', () => {
     createAccordion(documentTree, 0);
     const ddElements = selectDDElementsExpanded();
     expect(ddElements).not.toBeNull();
-    expect(getClassList(ddElements[0])).toStrictEqual('is-expanded');
+    expect(classListContains(ddElements[0],'is-expanded')).toBe(true);
   });
 
   it('should toggle expansion to desired item', () => {
@@ -43,8 +43,8 @@ describe('Accordion component', () => {
     const elementToExpand = elements[0];
     elementToExpand.click();
     const ddElements = selectDDElements();
-    expect(getClassList(ddElements[0])).toStrictEqual('is-expanded');
-    expect(getClassList(ddElements[1])).toBeUndefined();
-    expect(getClassList(ddElements[2])).toBeUndefined();
+    expect(classListContains(ddElements[0],'is-expanded')).toBe(true);
+    expect(classListContains(ddElements[1],'is-expanded')).toBe(false);
+    expect(classListContains(ddElements[2],'is-expanded')).toBe(false);
   });
 });
