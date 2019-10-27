@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const helpers = require('./helpers');
 
 let URLBASE = process.env.config_default_uri || 'https://jacxon4.github.io/jacxon4.adevinta.assessment.github.io';
-let SECTIONS_ENDPOINT = process.env.sections_endpoint || `${URLBASE}/db.json`;
+let SECTIONS_ENDPOINT = process.env.sections_endpoint || `${URLBASE}/deploy-db.json`;
 module.exports = env => {
   if (env.SECTIONS_ENDPOINT) {
     SECTIONS_ENDPOINT = env.SECTIONS_ENDPOINT;
