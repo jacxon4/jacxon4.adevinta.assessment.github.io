@@ -1,14 +1,13 @@
 import { createAccordion } from './components';
-import { fetchSections } from './api';
+import { fetchSections } from './api/sections-query-sevice';
 
-const renderDocument = document => rootElement => {
+export const render = rootElement => {
   const root = document.getElementById(rootElement);
-  const listToAccordion = root.querySelector('dl');
-  if (listToAccordion !== undefined) {
-    const accordion = createAccordion(listToAccordion);
-    fetchSections().then(sections => accordion.addItems(sections));
+  if (root !== null) {
+    const listToAccordion = root.querySelector('dl');
+    if (listToAccordion !== null) {
+      const accordion = createAccordion(listToAccordion);
+      fetchSections().then(sections => accordion.addItems(sections));
+    }
   }
 };
-const render = renderDocument(document);
-
-export default { render };

@@ -1,7 +1,4 @@
 module.exports = {
-  coverageReporters: ['text', 'html', 'lcov'],
-  collectCoverageFrom: ['**/*.{js}'],
-  coveragePathIgnorePatterns: ['.+\\.spec.js'],
   moduleFileExtensions: ['js', 'json', 'node'],
   moduleNameMapper: {
     '^.+\\.(css|sass)$': 'identity-obj-proxy',

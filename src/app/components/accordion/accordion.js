@@ -32,15 +32,16 @@ const accordion = (rootElement, expandedItem) => {
 
   function createItem(item) {
     const itemTerm = document.createElement('dt');
-    addListenerToElement(itemTerm);
     const itemText = document.createTextNode(item.term);
     itemTerm.appendChild(itemText);
+    addListenerToElement(itemTerm);
+    rootElement.appendChild(itemTerm);
+
     const itemDescription = document.createElement('dd');
     const pDescription = document.createElement('p');
     const itemDescriptionText = document.createTextNode(item.description);
     pDescription.appendChild(itemDescriptionText);
     itemDescription.appendChild(pDescription);
-    rootElement.appendChild(itemTerm);
     rootElement.appendChild(itemDescription);
   }
   function addItems(items) {
