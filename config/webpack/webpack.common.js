@@ -2,13 +2,19 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const helpers = require('./helpers');
 
+let URLBASE = process.env.config_default_uri || 'https://jacxon4.github.io/jacxon4.adevinta.assessment.github.io';
+let SECTIONS_ENDPOINT = process.env.sections_endpoint || `${URLBASE}/db.json`;
 module.exports = env => {
+  if (env.SECTIONS_ENDPOINT) {
+    SECTIONS_ENDPOINT = env.SECTIONS_ENDPOINT;
+  }
   let plugins = [
     new MiniCssExtractPlugin({
       filename: env.cssName,
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env.environment),
+      __SECTIONS_ENDPOINT__: JSON.stringify(SECTIONS_ENDPOINT),
     }),
   ];
 

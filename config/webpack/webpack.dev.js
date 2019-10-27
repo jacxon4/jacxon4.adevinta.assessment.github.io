@@ -3,7 +3,9 @@ const helpers = require('./helpers');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const commonWebpack = require('./webpack.common');
 
+const URLBASE = process.env.config_default_uri || 'http://localhost:3000';
 const env = {
+  SECTIONS_ENDPOINT: process.env.sections_endpoint || `${URLBASE}/api/sections`,
   environment: 'development',
   cssName: '[name].css',
   cache: true,
