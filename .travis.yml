@@ -1,9 +1,12 @@
 language: node_js
+sudo: required
 node_js:
   - 8
-
+services:
+  - docker
 script:
   - npm run build
+  - docker build -t jacxon4.adevinta.assessment.github.io .
 
 deploy:
   provider: pages
@@ -11,5 +14,9 @@ deploy:
   github_token: $GITHUB_TOKEN # Set in the settings page of your repository, as a secure variable
   keep_history: true
   local_dir: build-prod
+  after_success:
+    - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - docker tag jacxon4.adevinta.assessment.github.io $DOCKER_USER/jacxon4.adevinta.assessment.github.io
+    - docker push $DOCKER_USER/jacxon4.adevinta.assessment.github.io
   on:
     branch: master

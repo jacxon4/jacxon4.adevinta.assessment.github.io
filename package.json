@@ -11,7 +11,8 @@
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "clean:prod": "rimraf build-prod",
-    "build": "npm run clean:prod && webpack --config ./config/webpack/webpack.prod.js && node ./config/webpack/deploy-db"
+    "build": "npm run clean:prod && webpack --config ./config/webpack/webpack.prod.js && node ./config/webpack/deploy-db",
+    "build:docker": "npm run build && docker build -t jacxon4.adevinta.assessment.github.io ."
   },
   "repository": {
     "type": "git",
