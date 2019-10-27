@@ -27,7 +27,7 @@ Run next sentence from console. Bundling files will be placed under `build-prod`
 
     npm run build
 
-TravisCI is automatically creating images on every push to master
+TravisCI is automatically creating images and pushing them to [DockerHub](https://hub.docker.com/u/jacxon4)
 
 ## Docker build
 
