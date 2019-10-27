@@ -1,9 +1,12 @@
 import './styles.sass';
 
 export const EXPANDED_FEATURE = 'is-expanded';
+export const ACCORDION_CLASSNAME = 'Accordion';
+export const ACCORDION_ITEM_CLASSNAME = 'itemTerm';
+export const ACCORDION_DESCRIPTION_CLASSNAME = 'itemDescription';
 
 const accordion = (rootElement, expandedItem) => {
-  const accordionItems = rootElement.querySelectorAll('dt');
+  let accordionItems = rootElement.querySelectorAll('dt');
   function addListeners(elements) {
     elements.forEach(element => addListenerToElement(element));
   }
@@ -19,17 +22,39 @@ const accordion = (rootElement, expandedItem) => {
     accordionItems.forEach(item => item.nextElementSibling.classList.remove(EXPANDED_FEATURE));
     target.nextElementSibling.classList.toggle(EXPANDED_FEATURE);
   }
-  function setUpClasses() {
-    rootElement.classList.add('Accordion');
+  function setUpClasses(root) {
+    root.classList.add(ACCORDION_CLASSNAME);
     accordionItems.forEach(item => {
-      item.classList.add('Accordion-itemTerm');
-      item.nextElementSibling.classList.add('Accordion-itemDescription');
+      item.classList.add(`${ACCORDION_CLASSNAME}-${ACCORDION_ITEM_CLASSNAME}`);
+      item.nextElementSibling.classList.add(`${ACCORDION_CLASSNAME}-${ACCORDION_DESCRIPTION_CLASSNAME}`);
     });
   }
+
+  function createItem(item) {
+    const itemTerm = document.createElement('dt');
+    const itemText = document.createTextNode(item.term);
+    itemTerm.appendChild(itemText);
+    addListenerToElement(itemTerm);
+    rootElement.appendChild(itemTerm);
+
+    const itemDescription = document.createElement('dd');
+    const pDescription = document.createElement('p');
+    const itemDescriptionText = document.createTextNode(item.description);
+    pDescription.appendChild(itemDescriptionText);
+    itemDescription.appendChild(pDescription);
+    rootElement.appendChild(itemDescription);
+  }
+  function addItems(items) {
+    items.forEach(item => createItem(item));
+    accordionItems = rootElement.querySelectorAll('dt');
+    setUpClasses(rootElement);
+  }
+
   if (accordionItems !== undefined) {
-    setUpClasses();
+    setUpClasses(rootElement);
     addListeners(accordionItems);
     expandedItem !== null && toggleExpanded(accordionItems[expandedItem]);
   }
+  return { addItems };
 };
 export const createAccordion = (rootElement, expandedItem = null) => accordion(rootElement, expandedItem);

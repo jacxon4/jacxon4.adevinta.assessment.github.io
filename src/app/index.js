@@ -1,3 +1,3 @@
-import App from './app';
+import * as App from './app';
 
 App.render('root');
