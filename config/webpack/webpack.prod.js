@@ -2,7 +2,6 @@ const helpers = require('./helpers');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const commonWebpack = require('./webpack.common');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const env = {
   environment: 'production',
@@ -64,7 +63,6 @@ const env = {
       template: 'index.html',
       hash: true,
     }),
-    new CopyWebpackPlugin([{ from: `${helpers.src}/mock/db.json`, to: `${helpers.distPath}/db.json` }]),
   ],
 };
 

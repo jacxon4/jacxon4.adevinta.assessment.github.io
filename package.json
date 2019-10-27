@@ -11,7 +11,7 @@
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "clean:prod": "rimraf build-prod",
-    "build": "npm run clean:prod && webpack --config ./config/webpack/webpack.prod.js"
+    "build": "npm run clean:prod && webpack --config ./config/webpack/webpack.prod.js && node ./config/webpack/deploy-db"
   },
   "repository": {
     "type": "git",
@@ -32,7 +32,6 @@
     "@babel/preset-env": "^7.6.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
-    "copy-webpack-plugin": "^5.0.4",
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
     "eslint": "^6.6.0",
